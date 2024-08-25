@@ -8,6 +8,7 @@ var gravity = ProjectSettings.get_setting("physics/2d/default_gravity")
 var direction
 
 @onready var animated_sprite_2d = $AnimatedSprite2D
+@onready var camera_2d = $Camera2D
 
 func _physics_process(delta):
 	# Add the gravity.
@@ -38,3 +39,8 @@ func _set_state():
 		
 	if animated_sprite_2d.name != state:
 		animated_sprite_2d.play(state)
+
+func _on_hurtbox_body_entered(body):
+	if body.is_in_group('inimigos'):
+		camera_2d.reparent(get_parent())
+		queue_free()

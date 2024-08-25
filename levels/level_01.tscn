@@ -1,8 +1,9 @@
-[gd_scene load_steps=8 format=3 uid="uid://dwtjhwlx4jaor"]
+[gd_scene load_steps=9 format=3 uid="uid://dwtjhwlx4jaor"]
 
 [ext_resource type="Texture2D" uid="uid://5kqg0f2nninj" path="res://assets/Seasonal Tilesets/2 - Autumn Forest/Terrain (16 x 16).png" id="1_i3t56"]
 [ext_resource type="PackedScene" uid="uid://cc684r5syic3h" path="res://actors/player.tscn" id="1_w3sd7"]
 [ext_resource type="Texture2D" uid="uid://7f7jaegbk56m" path="res://assets/Seasonal Tilesets/2 - Autumn Forest/Autumn_entities (16 x 16).png" id="2_dkdgg"]
+[ext_resource type="PackedScene" uid="uid://b8l1dsrp6stfy" path="res://actors/character_body_2d.tscn" id="4_t44bb"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_dn58w"]
 texture = ExtResource("1_i3t56")
@@ -243,3 +244,6 @@ shape = SubResource("RectangleShape2D_too52")
 
 [node name="Player" parent="." instance=ExtResource("1_w3sd7")]
 position = Vector2(53, 307)
+
+[node name="Inimigo" parent="." instance=ExtResource("4_t44bb")]
+position = Vector2(355, 319)

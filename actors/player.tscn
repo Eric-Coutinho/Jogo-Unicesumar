@@ -1,4 +1,4 @@
-[gd_scene load_steps=23 format=3 uid="uid://cc684r5syic3h"]
+[gd_scene load_steps=24 format=3 uid="uid://cc684r5syic3h"]
 
 [ext_resource type="Script" path="res://scripts/Player.gd" id="1_anrtm"]
 [ext_resource type="Texture2D" uid="uid://i4f7876gxfo0" path="res://assets/Sprite Pack 3/2 - Twiggy/Hurt_&_Recovery (32 x 32).png" id="2_71ieb"]
@@ -137,6 +137,9 @@ animations = [{
 "speed": 5.0
 }]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_4v6pq"]
+size = Vector2(19, 18)
+
 [node name="Player" type="CharacterBody2D"]
 collision_mask = 30
 script = ExtResource("1_anrtm")
@@ -157,3 +160,12 @@ limit_top = -1000000
 limit_smoothed = true
 editor_draw_limits = true
 editor_draw_drag_margin = true
+
+[node name="hurtbox" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="hurtbox"]
+position = Vector2(-0.5, 0)
+shape = SubResource("RectangleShape2D_4v6pq")
+debug_color = Color(0.811765, 0, 0.219608, 0.419608)
+
+[connection signal="body_entered" from="hurtbox" to="." method="_on_hurtbox_body_entered"]
